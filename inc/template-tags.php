@@ -56,30 +56,22 @@ function stanleywp_posted_on() {
 endif;
 
 if ( ! function_exists( 'stanleywp_entry_footer' ) ) :
-/**
- * Prints HTML with meta information for the categories, tags and comments.
- */
-function stanleywp_entry_footer() {
-	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'stanleywp' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( '%1$s', 'stanleywp' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-		}
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
+	function stanleywp_entry_footer() {
+	
+		edit_post_link(
+			sprintf(
+				/* translators: %s: Name of current post */
+				esc_html__( 'Edit %s', 'stanleywp' ),
+				the_title( '<span class="screen-reader-text">"', '"</span>', false )
+			),
+			'<span class="edit-link float-right">',
+			'</span>', 0, 'btn btn-sm btn-danger'
+		);
 	}
-
-	edit_post_link(
-		sprintf(
-			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'stanleywp' ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-		),
-		'<span class="edit-link float-right">',
-		'</span>', 0, 'btn btn-sm btn-danger'
-	);
-}
-endif;
+	endif;
 
 /**
  * Returns true if a blog has more than 1 category.
