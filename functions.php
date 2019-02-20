@@ -128,3 +128,8 @@ require get_template_directory() . '/inc/metaboxes.php';
  * CPT
  */
 require get_template_directory() . '/inc/cpt.php';
+
+/**
+ * Custom Post Type Settings
+ */
+require get_template_directory() . '/inc/cpt-settings.php';
