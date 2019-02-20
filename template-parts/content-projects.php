@@ -9,14 +9,12 @@
 
 ?>
 
-<?php $project_items = get_theme_mod( 'project_items', '4' ); ?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class('col-md-'. $project_items); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('col-md-4'); ?>>
 
 	<?php if ( has_post_thumbnail() ) : ?>
 		<div class="post-thumbnail">
 		    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-		        <?php the_post_thumbnail(); ?>
+		        <?php the_post_thumbnail('full', array('class' => 'rounded')); ?>
 		    </a>
 		</div><!--  .post-thumbnail -->
 	<?php endif; ?>
