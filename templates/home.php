@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: About
+ * Template Name: Home
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -23,7 +23,7 @@ get_header(); ?>
 						<?php
 						while ( have_posts() ) : the_post();
 
-							get_template_part( 'template-parts/content', 'page' );
+							get_template_part( 'template-parts/content', 'Products' );
 
 							// If comments are open or we have at least one comment, load up the comment template.
 							if ( comments_open() || get_comments_number() ) :
@@ -40,23 +40,38 @@ get_header(); ?>
 	</div><!--  .banner -->
 
 
-	<?php
-		// Grab the metadata from the database
-		$leftcol = get_post_meta( get_the_ID(), '_stanleywp_left', true );
-		$rightcol = get_post_meta( get_the_ID(), '_stanleywp_right', true );
-	?>
 
-	<div class="container">	
-		<div class="row mt-5">
-			<div class="col-md-6">
-				<?php echo wp_kses_post($leftcol); ?>
-			</div><!--  .col-md-6 -->
-			<div class="col-md-6">
-				<?php echo wp_kses_post($rightcol); ?>
-			</div><!--  .col-md-6 -->
-		</div><!--  .row -->
+	
+		<div class="container">	
+			<div class="row mt-5">
+				<?php 
+					// the query
+					$args = array('post_type' => 'project', 'posts_per_page' => 6);
 
-	</div><!--  .container -->
+					$the_query = new WP_Query( $args ); ?>
+
+					<?php if ( $the_query->have_posts() ) : ?>
+
+						<!-- pagination here -->
+
+						<!-- the loop -->
+						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); 
+
+							get_template_part( 'template-parts/content', 'projects' );
+
+						 endwhile; ?>
+						<!-- end of the loop -->
+
+						<!-- pagination here -->
+
+						<?php wp_reset_postdata(); ?>
+
+					<?php else : ?>
+						<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
+					<?php endif; ?>
+			</div><!--  .row -->
+		</div><!--  .container -->
+	
 
 <?php
 get_footer();
