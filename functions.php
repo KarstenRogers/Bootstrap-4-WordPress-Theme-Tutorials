@@ -114,22 +114,12 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/bootstrap-walker.php';
 
-/*
-* Plugin Activation
-*/
+/**
+ * Plugin Activation
+ */
 require get_template_directory() . '/plugin-activation/install-plugins.php';
 
 /**
  * Metaboxes
  */
 require get_template_directory() . '/inc/metaboxes.php';
-
-/**
- * CPT
- */
-require get_template_directory() . '/inc/cpt.php';
-
-/**
- * Custom Post Type Settings
- */
-require get_template_directory() . '/inc/cpt-settings.php';

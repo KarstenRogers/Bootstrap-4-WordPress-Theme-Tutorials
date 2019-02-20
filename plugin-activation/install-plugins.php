@@ -10,7 +10,7 @@
  *
  * @package    TGM-Plugin-Activation
  * @subpackage Example
- * @version    2.6.1 for plugin stanleywp
+ * @version    2.6.1 for parent theme Stanleywp
  * @author     Thomas Griffin, Gary Jones, Juliette Reinders Folmer
  * @copyright  Copyright (c) 2011, Thomas Griffin
  * @license    http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
@@ -59,7 +59,7 @@ function stanleywp_register_required_plugins() {
 	 */
 	$plugins = array(
 
-		// This is an example of how to include a plugin bundled with a theme.
+		// // This is an example of how to include a plugin bundled with a theme.
 		array(
 			'name'               => 'MVPWP CPT Plugin', // The plugin name.
 			'slug'               => 'mvpwp-cpt-plugin', // The plugin slug (typically the folder name).
@@ -72,29 +72,29 @@ function stanleywp_register_required_plugins() {
 			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
 
-		// This is an example of how to include a plugin from an arbitrary external source in your theme.
-		array(
-			'name'         => 'TGM New Media Plugin', // The plugin name.
-			'slug'         => 'tgm-new-media-plugin', // The plugin slug (typically the folder name).
-			'source'       => 'https://s3.amazonaws.com/tgm/tgm-new-media-plugin.zip', // The plugin source.
-			'required'     => true, // If false, the plugin is only 'recommended' instead of required.
-			'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
-		),
+		// // This is an example of how to include a plugin from an arbitrary external source in your theme.
+		// array(
+		// 	'name'         => 'TGM New Media Plugin', // The plugin name.
+		// 	'slug'         => 'tgm-new-media-plugin', // The plugin slug (typically the folder name).
+		// 	'source'       => 'https://s3.amazonaws.com/tgm/tgm-new-media-plugin.zip', // The plugin source.
+		// 	'required'     => true, // If false, the plugin is only 'recommended' instead of required.
+		// 	'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
+		// ),
 
-		// This is an example of how to include a plugin from a GitHub repository in your theme.
-		// This presumes that the plugin code is based in the root of the GitHub repository
-		// and not in a subdirectory ('/src') of the repository.
-		array(
-			'name'      => 'Adminbar Link Comments to Pending',
-			'slug'      => 'adminbar-link-comments-to-pending',
-			'source'    => 'https://github.com/jrfnl/WP-adminbar-comments-to-pending/archive/master.zip',
-		),
+		// // This is an example of how to include a plugin from a GitHub repository in your theme.
+		// // This presumes that the plugin code is based in the root of the GitHub repository
+		// // and not in a subdirectory ('/src') of the repository.
+		// array(
+		// 	'name'      => 'Adminbar Link Comments to Pending',
+		// 	'slug'      => 'adminbar-link-comments-to-pending',
+		// 	'source'    => 'https://github.com/jrfnl/WP-adminbar-comments-to-pending/archive/master.zip',
+		// ),
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		array(
-			'name'      => 'BuddyPress',
-			'slug'      => 'buddypress',
-			'required'  => false,
+			'name'      => 'CMB2',
+			'slug'      => 'cmb2',
+			'required'  => true,
 		),
 
 		// This is an example of the use of 'is_callable' functionality. A user could - for instance -
@@ -103,17 +103,11 @@ function stanleywp_register_required_plugins() {
 		// By setting 'is_callable' to either a function from that plugin or a class method
 		// `array( 'class', 'method' )` similar to how you hook in to actions and filters, TGMPA can still
 		// recognize the plugin as being installed.
-		array(
-			'name'        => 'WordPress SEO by Yoast',
-			'slug'        => 'wordpress-seo',
-			'is_callable' => 'wpseo_init',
-		),
-
-		array(
-			'name'      => 'CMB2',
-			'slug'      => 'cmb2',
-			'required'  => true,
-		),
+		// array(
+		// 	'name'        => 'WordPress SEO by Yoast',
+		// 	'slug'        => 'wordpress-seo',
+		// 	'is_callable' => 'wpseo_init',
+		// ),
 
 	);
 
@@ -130,8 +124,8 @@ function stanleywp_register_required_plugins() {
 		'id'           => 'stanleywp',                 // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
 		'menu'         => 'tgmpa-install-plugins', // Menu slug.
-		'parent_slug'  => 'plugins.php',            // Parent menu slug.
-		'capability'   => 'manage_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'parent_slug'  => 'themes.php',            // Parent menu slug.
+		'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
 		'has_notices'  => true,                    // Show admin notices or not.
 		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
 		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
