@@ -49,7 +49,6 @@ gulp.task('zip', function () {
    './inc/**/*',
    './js/**/*',
    './languages/*',
-   './plugin-activation/**/*',
    './sass/**/*',
    './template-parts/*',
    './templates/*',

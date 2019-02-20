@@ -2,7 +2,12 @@
 	margin-bottom: 3em;
 }
 
-.blog,
+.blog {
+	.site-header {
+		margin-bottom: 0;
+	}
+}
+
 .page-template-about,
 .page-template-home {
 	.site-header {
