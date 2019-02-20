@@ -56,22 +56,22 @@ function stanleywp_posted_on() {
 endif;
 
 if ( ! function_exists( 'stanleywp_entry_footer' ) ) :
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
-	function stanleywp_entry_footer() {
-	
-		edit_post_link(
-			sprintf(
-				/* translators: %s: Name of current post */
-				esc_html__( 'Edit %s', 'stanleywp' ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			),
-			'<span class="edit-link float-right">',
-			'</span>', 0, 'btn btn-sm btn-danger'
-		);
-	}
-	endif;
+/**
+ * Prints HTML with meta information for the categories, tags and comments.
+ */
+function stanleywp_entry_footer() {
+
+	edit_post_link(
+		sprintf(
+			/* translators: %s: Name of current post */
+			esc_html__( 'Edit %s', 'stanleywp' ),
+			the_title( '<span class="screen-reader-text">"', '"</span>', false )
+		),
+		'<span class="edit-link float-right">',
+		'</span>', 0, 'btn btn-sm btn-danger'
+	);
+}
+endif;
 
 /**
  * Returns true if a blog has more than 1 category.
